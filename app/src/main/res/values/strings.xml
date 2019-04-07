@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">AdminSmartInventory</string>
+
+    <string-array name="secq1">
+        <item>What is your birth city?</item>
+        <item>Where did you meet your significant one?</item>
+        <item>what is the make of your first car?</item>
+        <item>Who is your childhood hero?</item>
+    </string-array>
+    <string-array name="secq2">
+        <item>What is your mother middle name?</item>
+        <item>What is your favorite place to visit?</item>
+        <item>What is your favorite color?</item>
+        <item>What year did you buy your first car?</item>
+    </string-array>
+</resources>

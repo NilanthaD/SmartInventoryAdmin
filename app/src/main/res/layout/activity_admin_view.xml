@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminView">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="10dp">
+        <Button
+            android:id="@+id/ViewItemBTN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View/Edit/Delete Items" />
+
+        <Button
+            android:id="@+id/addItemBTN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Items" />
+
+
+    <Button
+        android:id="@+id/messageBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Messages"
+         />
+
+
+    </LinearLayout>
+
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
