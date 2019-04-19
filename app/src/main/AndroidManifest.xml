@@ -11,6 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".PaymentRequestsRV"></activity>
+        <activity android:name=".UploadShippingLabel" />
+        <activity android:name=".RequestAction" />
+        <activity android:name=".SupplyRequestRV" />
+        <activity android:name=".EditItem" />
         <activity android:name=".ViewItemsRV" />
         <activity android:name=".AddItems" />
         <activity android:name=".SecurityQues" />
@@ -23,7 +28,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity_user_request"></activity>
+        <activity android:name=".activity_user_request" />
     </application>
 
 </manifest>

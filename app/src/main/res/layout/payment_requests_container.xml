@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app.cardCornerRadius = "3dp">
+
+    <LinearLayout
+        android:id="@+id/paymentRequestLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/boder"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/requestedByTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Requested By : "/>
+        <TextView
+            android:id="@+id/paymentStatusTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Payment Status : "/>
+
+        <TextView
+            android:id="@+id/itemIdTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="itemID"/>
+        <TextView
+            android:id="@+id/noOfUnitsTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Number of Units"/>
+        <TextView
+            android:id="@+id/unitPriceTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Unite Price"/>
+        <TextView
+            android:id="@+id/totalCostTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Total Value"/>
+        <TextView
+            android:id="@+id/dateTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="date"
+            android:gravity="right"/>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

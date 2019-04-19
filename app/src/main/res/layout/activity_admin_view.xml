@@ -17,10 +17,20 @@
         android:layout_gravity="center_vertical"
         android:layout_margin="10dp">
         <Button
+            android:id="@+id/supplyRequestBTN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Supply Requests" />
+        <Button
+            android:id="@+id/paymentReqBTN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Payment Requests" />
+        <Button
             android:id="@+id/ViewItemBTN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="View/Edit/Delete Items" />
+            android:text="View/Edit Items" />
 
         <Button
             android:id="@+id/addItemBTN"

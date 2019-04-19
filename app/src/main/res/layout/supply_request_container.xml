@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app.cardCornerRadius = "3dp">
+
+    <LinearLayout
+        android:id="@+id/supplyRequestLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/boder"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/titleTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tital"/>
+
+        <TextView
+            android:id="@+id/itemIdTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="itemID"/>
+        <TextView
+            android:id="@+id/fromTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="From"/>
+        <TextView
+            android:id="@+id/statusTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Status"/>
+        <TextView
+            android:id="@+id/dateTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="date"
+            android:gravity="right"/>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

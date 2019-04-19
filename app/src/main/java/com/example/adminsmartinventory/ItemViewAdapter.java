@@ -1,6 +1,8 @@
 package com.example.adminsmartinventory;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -63,6 +65,21 @@ public class ItemViewAdapter extends RecyclerView.Adapter<ItemViewAdapter.ItemsV
         itemsViewHolder.quantityNeeded.setText("Quentity needed :" + currentItem.getQntyNeeded());
         itemsViewHolder.requiredBy.setText("Required by :" + requiredBy);
 
+        itemsViewHolder.linearLayout2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, EditItem.class);
+                intent.putExtra("imageURL", currentItem.getImageURL());
+                intent.putExtra("userEmail", currentItem.getUserEmail());
+                intent.putExtra("documentId", currentItem.getDocumentId());
+                intent.putExtra("itemId", currentItem.getItemID());
+                intent.putExtra("itemName", currentItem.getItemName());
+                intent.putExtra("unitPrice", currentItem.getUnitPrice());
+                intent.putExtra("qntyRequired", currentItem.getQntyNeeded());
+                intent.putExtra("requiredBy", requiredBy);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

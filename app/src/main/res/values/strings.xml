@@ -13,4 +13,10 @@
         <item>What is your favorite color?</item>
         <item>What year did you buy your first car?</item>
     </string-array>
+
+    <string-array name="approve">
+        <item>Pending</item>
+        <item>Approved</item>
+        <item>Denied</item>
+    </string-array>
 </resources>
