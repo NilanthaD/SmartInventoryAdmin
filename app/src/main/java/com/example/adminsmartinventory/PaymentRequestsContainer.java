@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class PaymentRequestsContainer {
 
-    private String paymentStatus, itemId, from, supplyReqDocId, bankInfoDocId;
+    private String paymentStatus, itemId, from, supplyReqDocId, bankInfoDocId, userId, paymetRequestDocId;
     private Long noOfUnits, unitPrice, totalCost;
     private Date requestedDate;
 
     public PaymentRequestsContainer(String paymentStatus, String itemId, String from, Date requestedDate, String supplyReqDocId,
-                                  Long noOfUnits, Long unitPrice, Long totalCost, String bankInfoDocId){
+                                  Long noOfUnits, Long unitPrice, Long totalCost, String bankInfoDocId, String userId, String paymetRequestDocId){
         this.paymentStatus = paymentStatus;
         this.itemId = itemId;
         this.noOfUnits = noOfUnits;
@@ -19,6 +19,8 @@ public class PaymentRequestsContainer {
         this.requestedDate = requestedDate;
         this.supplyReqDocId = supplyReqDocId;
         this.bankInfoDocId = bankInfoDocId;
+        this.userId = userId;
+        this.paymetRequestDocId = paymetRequestDocId;
     }
 
     public String getPaymentStatus() {
@@ -56,7 +58,11 @@ public class PaymentRequestsContainer {
     public Date getRequestedDate() {
         return requestedDate;
     }
-//    public PaymentRequestsContainer(String title, String itemId, String from, Date requestCreatedDate, String supplyReqDocId, String status, String docId){
+
+    public String getUserId() { return userId;    }
+
+    public String getPaymetRequestDocId() { return paymetRequestDocId; }
+    //    public PaymentRequestsContainer(String title, String itemId, String from, Date requestCreatedDate, String supplyReqDocId, String status, String docId){
 //        this.title = title;
 //        this.itemId = itemId;
 //        this.from = from;

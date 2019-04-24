@@ -42,8 +42,8 @@ public class PaymentRequestsRV extends AppCompatActivity {
                 if(task.isSuccessful()){
                     for(QueryDocumentSnapshot doc : task.getResult()){
                         paymentRequestsList.add(new PaymentRequestsContainer(doc.getString("status"), doc.getString("itemId"), doc.getString("userId"),
-                               doc.getDate("requestedDate"), doc.getString("supplyReqDocId"), doc.getLong("noOfUnits"), doc.getLong("unitPrice"),
-                                doc.getLong("totalValue"), doc.getString("bankInfoDocId")));
+                               doc.getDate("requestedDate"), doc.getString("sypplyReqDocId"), doc.getLong("noOfUnits"), doc.getLong("unitPrice"),
+                                doc.getLong("totalValue"), doc.getString("bankInfoDocId"), doc.getString("userId"),doc.getId()));
                     }
                     paymentReqRV = findViewById(R.id.paymentReqRV);
                     paymentReqRV.setHasFixedSize(true);

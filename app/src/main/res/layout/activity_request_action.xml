@@ -64,7 +64,8 @@
                 android:id="@+id/supplyAmountTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Supply Amount: "/>
+                android:text="Supply Amount: "
+                android:layout_marginTop="20dp"/>
             <TextView
                 android:id="@+id/unitPriceTV"
                 android:layout_width="match_parent"
@@ -85,9 +86,11 @@
                 android:id="@+id/statusTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Status: Pending"/>
+                android:text="Status: Pending"
+                android:layout_marginTop="20dp"/>
 
             <LinearLayout
+                android:id="@+id/statusChangeLL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -97,12 +100,27 @@
                     android:text="Change status to: "/>
 
                 <LinearLayout
+                    android:id="@+id/approveLL"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right">
 
                     <Spinner
                         android:id="@+id/approveSP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </Spinner>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/deliveredLL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right">
+
+                    <Spinner
+                        android:id="@+id/deliveredSP"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 

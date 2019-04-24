@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UploadPayment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/itemIdTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Item Id :"
+                android:textColor="#070"
+                android:textSize="18dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageIV"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:background="@drawable/boder" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/itemNameTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Item Name :"/>
+            <TextView
+                android:id="@+id/noOfUnitsTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No Of Units Supplied : "/>
+            <TextView
+                android:id="@+id/unitPriceTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Unit Price : $"/>
+            <TextView
+                android:id="@+id/totalAmtTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total Amount : "/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Bank Account Details"
+                android:gravity="center"
+                android:textColor="#070"/>
+            <TextView
+                android:id="@+id/accHoderNameET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Acc Holder Name : "
+                />
+            <TextView
+                android:id="@+id/bankNameTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bank Name : "/>
+            <TextView
+                android:id="@+id/accNoTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Account Number : "/>
+            <TextView
+                android:id="@+id/routingTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Routing No : "/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Once the payment is deposited to the bank, change the
+status as completed to complete the transaction by clicking the button bellow "/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp"
+                android:gravity="right">
+                <TextView
+                    android:id="@+id/cancelTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cancel"
+                    android:layout_marginRight="40dp"
+                    android:textColor="#00F"/>
+                <Button
+                    android:id="@+id/paymentReceiptBTN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Complete Transaction"/>
+
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

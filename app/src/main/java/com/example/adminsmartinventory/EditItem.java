@@ -114,7 +114,11 @@ public class EditItem extends AppCompatActivity implements DatePickerDialog.OnDa
                         if(requiredBefore != null){
                             itemDoc.update("requiredBefore", requiredBefore);
                         }
-                        finish();
+                        Intent j = new Intent(EditItem.this, ViewItemsRV.class);
+                        j.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(j);
+                        EditItem.this.finish();
+
                     }
                 }).setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override

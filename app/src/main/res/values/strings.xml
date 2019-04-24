@@ -19,4 +19,10 @@
         <item>Approved</item>
         <item>Denied</item>
     </string-array>
+    <string-array name="deliver">
+        <item>Shipped</item>
+        <item>ItemDelivered</item>
+        <item>ItemDeliveredWithDefects</item>
+        <item>ItemDidNotDelivered</item>
+    </string-array>
 </resources>

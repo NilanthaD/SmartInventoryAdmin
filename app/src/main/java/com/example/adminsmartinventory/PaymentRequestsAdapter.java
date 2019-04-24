@@ -1,6 +1,7 @@
 package com.example.adminsmartinventory;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -34,6 +36,7 @@ public class PaymentRequestsAdapter extends RecyclerView.Adapter<PaymentRequests
             unitPriceTV = paymentRequestView.findViewById(R.id.unitPriceTV);
             totalCostTV = paymentRequestView.findViewById(R.id.totalCostTV);
             dateTV = paymentRequestView.findViewById(R.id.dateTV);
+            paymentRequestLL = paymentRequestView.findViewById(R.id.paymentRequestLL);
         }
     }
 
@@ -49,13 +52,32 @@ public class PaymentRequestsAdapter extends RecyclerView.Adapter<PaymentRequests
     public void onBindViewHolder(@NonNull PaymentRequestsViewHolder paymentRequestsViewHolder, int i) {
         final PaymentRequestsContainer currentRequest = paymentRequestList.get(i);
         final String requestedDate = FormatDate.getDate(currentRequest.getRequestedDate());
-        paymentRequestsViewHolder.requestedByTV.setText("Requested By : "+currentRequest.getFrom());
-        paymentRequestsViewHolder.paymentStatusTV.setText("Status : "+currentRequest.getPaymentStatus());
-        paymentRequestsViewHolder.itemIdTV.setText("Item Id : "+currentRequest.getItemId());
-        paymentRequestsViewHolder.unitPriceTV.setText("Unit Price : $"+currentRequest.getUnitPrice());
-        paymentRequestsViewHolder.noOfUnitsTV.setText("No of Units : "+currentRequest.getNoOfUnits().toString());
-        paymentRequestsViewHolder.totalCostTV.setText("Total Amount : $"+currentRequest.getTotalCost().toString());
-        paymentRequestsViewHolder.dateTV.setText("Requested Date : "+requestedDate);
+        paymentRequestsViewHolder.requestedByTV.setText("Requested By : " + currentRequest.getFrom());
+        paymentRequestsViewHolder.paymentStatusTV.setText("Status : " + currentRequest.getPaymentStatus());
+        paymentRequestsViewHolder.itemIdTV.setText("Item Id : " + currentRequest.getItemId());
+        paymentRequestsViewHolder.unitPriceTV.setText("Unit Price : $" + currentRequest.getUnitPrice());
+        paymentRequestsViewHolder.noOfUnitsTV.setText("No of Units : " + currentRequest.getNoOfUnits().toString());
+        paymentRequestsViewHolder.totalCostTV.setText("Total Amount : $" + currentRequest.getTotalCost().toString());
+        paymentRequestsViewHolder.dateTV.setText("Requested Date : " + requestedDate);
+
+        paymentRequestsViewHolder.paymentRequestLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent paymentIntent = new Intent(context, UploadPayment.class);
+                paymentIntent.putExtra("requestedBy", currentRequest.getFrom());
+                paymentIntent.putExtra("status", currentRequest.getPaymentStatus());
+                paymentIntent.putExtra("itemId",currentRequest.getItemId());
+                paymentIntent.putExtra("unitPrice",currentRequest.getUnitPrice());
+                paymentIntent.putExtra("noOfUnits",currentRequest.getNoOfUnits().toString());
+                paymentIntent.putExtra("totalAmount", currentRequest.getTotalCost().toString());
+                paymentIntent.putExtra("requestedDate", requestedDate);
+                paymentIntent.putExtra("bankInfoDocId", currentRequest.getBankInfoDocId());
+                paymentIntent.putExtra("supplyReqDocId", currentRequest.getSupplyReqDocId());
+                paymentIntent.putExtra("userId", currentRequest.getUserId());
+                paymentIntent.putExtra("paymentRequestDocId", currentRequest.getPaymetRequestDocId());
+                context.startActivity(paymentIntent);
+            }
+        });
 
     }
 
@@ -63,6 +85,4 @@ public class PaymentRequestsAdapter extends RecyclerView.Adapter<PaymentRequests
     public int getItemCount() {
         return paymentRequestList.size();
     }
-
-
 }
