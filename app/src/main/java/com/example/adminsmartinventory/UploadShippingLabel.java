@@ -76,13 +76,14 @@ public class UploadShippingLabel extends AppCompatActivity {
                             public void onSuccess(Uri uri) {
                                 pdfURL = uri.toString();
                                 supplyReqDocRef.update("shippingLabelURL", pdfURL);
-                                Snackbar mySnackbar = Snackbar.make(findViewById(R.id.uploadShpCL), "Shipping label uploaded", 500);
-                                mySnackbar.show();
+//                                Snackbar mySnackbar = Snackbar.make(findViewById(R.id.uploadShpCL), "Shipping label uploaded", 500);
+//                                mySnackbar.show();
                             }
                         });
-                        Intent inte = new Intent(UploadShippingLabel.this, SupplyRequestRV.class);
-                        startActivity(inte);
-                        finish();
+                        Intent j = new Intent(UploadShippingLabel.this, SupplyRequestRV.class);
+                        j.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(j);
+                        UploadShippingLabel.this.finish();
                     }
                 });
             }

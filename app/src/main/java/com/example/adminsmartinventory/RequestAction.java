@@ -188,7 +188,6 @@ public class RequestAction extends AppCompatActivity {
                                     uploadShippingIntent.putExtra("userId", userId);
                                     uploadShippingIntent.putExtra("supplyReqDocId", supplyReqDocId);
                                     startActivity(uploadShippingIntent);
-
                                 }
                                 if(status.equals("ItemDelivered")){
 
@@ -208,11 +207,11 @@ public class RequestAction extends AppCompatActivity {
                         }).setNegativeButton("Discard", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                finish();
-//                                Intent j = new Intent(RequestAction.this, SupplyRequestRV.class);
-//                                j.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                                startActivity(j);
-//                                RequestAction.this.finish();
+//                                finish();
+                                Intent j = new Intent(RequestAction.this, SupplyRequestRV.class);
+                                j.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(j);
+                                RequestAction.this.finish();
                             }
                         });
                 builder.create();
