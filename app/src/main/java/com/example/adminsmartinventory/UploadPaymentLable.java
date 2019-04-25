@@ -40,8 +40,6 @@ public class UploadPaymentLable extends AppCompatActivity {
 
         supplyReqDocRef = db.collection("users").document(userId).collection("supplyList").document(supplyReqDocId);
         paymentReceiptRef = FirebaseStorage.getInstance().getReference("payments");
-
-
         uploadPaymentBTN = findViewById(R.id.uploadPaymentBTN);
         uploadPaymentBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,11 +78,6 @@ public class UploadPaymentLable extends AppCompatActivity {
                                 builder.setMessage("You have completed the paying the customer").setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        Intent j = new Intent(UploadPaymentLable.this, PaymentRequestsRV.class);
-                                        j.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-                                        startActivity(j);
-                                        UploadPaymentLable.this.finish();
 
                                     }
                                 });
@@ -95,10 +88,11 @@ public class UploadPaymentLable extends AppCompatActivity {
                     }
                 });
             }
-//            Intent inte = new Intent(UploadPaymentLable.this, UploadPayment.class);
-//            startActivity(inte);
-//            finish();
         }
-    }
+        Intent j = new Intent(UploadPaymentLable.this, PaymentRequestsRV.class);
+        j.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
+        startActivity(j);
+        UploadPaymentLable.this.finish();
+    }
 }

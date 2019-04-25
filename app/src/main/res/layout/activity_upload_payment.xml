@@ -56,6 +56,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Total Amount : "/>
+            <TextView
+                android:id="@+id/statusTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Status : "/>
+            <TextView
+                android:id="@+id/userTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="User : "/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -86,6 +96,7 @@
                 android:layout_height="wrap_content"
                 android:text="Routing No : "/>
             <TextView
+                android:id="@+id/uploadPaymentTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"

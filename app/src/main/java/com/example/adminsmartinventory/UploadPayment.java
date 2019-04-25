@@ -22,11 +22,12 @@ import java.net.URL;
 public class UploadPayment extends AppCompatActivity {
 
     private  TextView itemIdTV, itemNameTV, noOfUnitsTV, totalAmtTV, unitPriceTV, accHolderNameTV,
-    bankTV, accNoTv, routingTV, cancelTV;
+    bankTV, accNoTv, routingTV, cancelTV, userTV, statusTV , uploadPaymentTV;
     private ImageView imageIV;
+    private Long unitPrice;
     private Button paymentReceiptBTN;
 
-    private String requestedBy, status, itemId, unitPrice, noOfunits, totalAmount, imageURL, supplyReqMsgId, paymentReqDocId;
+    private String requestedBy, status, itemId, unitPrice1, noOfunits, totalAmount, imageURL, supplyReqMsgId, paymentReqDocId;
     private  String supplyReqDocId,bankInfoDocId, userId;
     private URL imgURL;
 
@@ -49,18 +50,27 @@ public class UploadPayment extends AppCompatActivity {
         cancelTV = findViewById(R.id.cancelTV);
         imageIV = findViewById(R.id.imageIV);
         paymentReceiptBTN = findViewById(R.id.paymentReceiptBTN);
+        userTV = findViewById(R.id.userTV);
+        statusTV = findViewById(R.id.statusTV);
+       uploadPaymentTV = findViewById(R.id.uploadPaymentTV);
+
 
         Intent paymentIntent = getIntent();
         requestedBy = paymentIntent.getStringExtra("requestedBy");
         status = paymentIntent.getStringExtra("status");
         itemId = paymentIntent.getStringExtra("itemId");
-        unitPrice = paymentIntent.getStringExtra("unitPrice");
+        unitPrice = paymentIntent.getLongExtra("unitPrice",0);
+        unitPrice1=unitPrice.toString();
         noOfunits = paymentIntent.getStringExtra("noOfUnits");
         totalAmount = paymentIntent.getStringExtra("totalAmount");
         supplyReqDocId = paymentIntent.getStringExtra("supplyReqDocId");
         bankInfoDocId = paymentIntent.getStringExtra("bankInfoDocId");
         userId = paymentIntent.getStringExtra("userId");
         paymentReqDocId = paymentIntent.getStringExtra("paymentRequestDocId");
+        if(status.equals("PaymentCompleted")){
+            paymentReceiptBTN.setVisibility(View.GONE);
+            uploadPaymentTV.setVisibility(View.GONE);
+        }
         db= FirebaseFirestore.getInstance();
         supplyReqDocRef = db.collection("users").document(userId).collection("supplyList").document(supplyReqDocId);
         supplyReqDocRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -73,9 +83,11 @@ public class UploadPayment extends AppCompatActivity {
                     itemIdTV.setText("Item Id :"+ itemId);
                     itemNameTV.setText("Item Name :"+doc.getString("itemName"));
                     noOfUnitsTV.setText("No of Units Supplied :"+noOfunits);
-                    unitPriceTV.setText("Unit Price :$"+unitPrice);
+                    unitPriceTV.setText("Unit Price :$"+unitPrice1);
                     totalAmtTV.setText("Total Amount :$"+totalAmount);
                     supplyReqMsgId = doc.getString("supplyReqMsgId");
+                    userTV.setText("User :"+userId);
+                    statusTV.setText("Status :"+status);
                 }
                 else {
                     Toast.makeText(UploadPayment.this, "Read Failed", Toast.LENGTH_SHORT).show();
@@ -91,7 +103,7 @@ public class UploadPayment extends AppCompatActivity {
                     DocumentSnapshot document = task.getResult();
                     accHolderNameTV.setText("Acc Holder name :"+document.getString("name"));
                     bankTV.setText("Bank Name :"+document.getString("bankName"));
-                    accNoTv.setText(document.getLong("accNo").toString());
+                    accNoTv.setText("Account No :"+document.getLong("accNo").toString());
                     routingTV.setText("Routing No :"+document.getLong("routingNo").toString());
 
                 }

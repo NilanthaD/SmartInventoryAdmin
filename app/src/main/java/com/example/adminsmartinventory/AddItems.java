@@ -115,6 +115,7 @@ public class AddItems extends AppCompatActivity implements DatePickerDialog.OnDa
                 description = descriptionET.getText().toString();
                 unitPrice = Integer.parseInt(unitPriceET.getText().toString());
 
+
                 if(itemId.equals("")||itemName.equals("")||count<=0 || requiredBefore == null || imageURL.equals("") || description.equals("") || unitPrice<=0){
                     Toast.makeText(AddItems.this, "All the field needs to be completed ", Toast.LENGTH_SHORT).show();
                 }

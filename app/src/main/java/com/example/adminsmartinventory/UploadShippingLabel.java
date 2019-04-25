@@ -80,12 +80,13 @@ public class UploadShippingLabel extends AppCompatActivity {
                                 mySnackbar.show();
                             }
                         });
+                        Intent inte = new Intent(UploadShippingLabel.this, SupplyRequestRV.class);
+                        startActivity(inte);
+                        finish();
                     }
                 });
             }
-            Intent inte = new Intent(UploadShippingLabel.this, SupplyRequestRV.class);
-            startActivity(inte);
-            finish();
+
         }
     }
 

@@ -27,12 +27,12 @@ import com.squareup.picasso.Picasso;
 public class RequestAction extends AppCompatActivity {
 
     private ImageView imageIV;
-    private TextView itemIDTV, requestedDateTV, itemNameTV, descriptionTV, statusTV, cancelTV, supplyAmountTV, userMsgTV;
+    private TextView itemIDTV, requestedDateTV, itemNameTV, descriptionTV, statusTV, cancelTV, supplyAmountTV, userMsgTV, uploadPaymentTV;
     private TextView unitPriceTV, totalValueTV;
     private EditText messageET;
     private Button submitBTN;
     private Spinner approveSP, deliveredSP;
-    private LinearLayout approvedLL, deliveredLL, statusChangeLL;
+    private LinearLayout approvedLL, deliveredLL, statusChangeLL, messageLL;
 
     String userId, supplyReqDocId, supplyReqMsgId, status, respondMessage;
 
@@ -63,6 +63,8 @@ public class RequestAction extends AppCompatActivity {
         deliveredLL = findViewById(R.id.deliveredLL);
         approvedLL = findViewById(R.id.approveLL);
         statusChangeLL = findViewById(R.id.statusChangeLL);
+        messageLL = findViewById(R.id.messageLL);
+//        uploadPaymentTV = findViewById(R.id.uploadPaymentTV);
 
         db = FirebaseFirestore.getInstance();
 
@@ -142,6 +144,13 @@ public class RequestAction extends AppCompatActivity {
                         statusChangeLL.setVisibility(View.GONE);
                         messageET.setVisibility(View.GONE);
                         submitBTN.setVisibility(View.GONE);
+                        uploadPaymentTV.setVisibility(View.GONE);
+                    }
+
+                    if(status.equals("TransactionCompleted")){
+                        statusChangeLL.setVisibility(View.GONE);
+                        messageLL.setVisibility(View.GONE);
+                        submitBTN.setVisibility(View.GONE);
                     }
                 }
             }
@@ -178,8 +187,8 @@ public class RequestAction extends AppCompatActivity {
                                     Intent uploadShippingIntent = new Intent(RequestAction.this, UploadShippingLabel.class);
                                     uploadShippingIntent.putExtra("userId", userId);
                                     uploadShippingIntent.putExtra("supplyReqDocId", supplyReqDocId);
-
                                     startActivity(uploadShippingIntent);
+
                                 }
                                 if(status.equals("ItemDelivered")){
 
@@ -187,16 +196,23 @@ public class RequestAction extends AppCompatActivity {
                                 if(status.equals("PaymentRequested")){
                                     statusChangeLL.setVisibility(View.GONE);
                                 }
+                                if(status.equals("TransactionCompleted")){
+                                    statusChangeLL.setVisibility(View.GONE);
+                                    approvedLL.setVisibility(View.GONE);
+                                    messageET.setVisibility(View.GONE);
 
-                                Intent j = new Intent(RequestAction.this, SupplyRequestRV.class);
-                                j.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                startActivity(j);
-                                RequestAction.this.finish();
+                                }
+
+
                             }
                         }).setNegativeButton("Discard", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 finish();
+//                                Intent j = new Intent(RequestAction.this, SupplyRequestRV.class);
+//                                j.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                                startActivity(j);
+//                                RequestAction.this.finish();
                             }
                         });
                 builder.create();
