@@ -27,6 +27,8 @@ public class SupplyRequestRV extends AppCompatActivity {
     private DocumentReference supplyReqDocRef;
     private CollectionReference supplyRequestColRef;
 
+    private String changeStatus;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +43,13 @@ public class SupplyRequestRV extends AppCompatActivity {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot doc : task.getResult()) {
-                        supplyRequestList.add(new SupplyRequestContainer("New supply request", doc.getString("itemId"), doc.getString("user"),
+                        if(doc.getString("status").equals("Pending for Change")){
+                            changeStatus = "Change Supply Request";
+                        }
+                        else {
+                            changeStatus = "New supply request";
+                        }
+                        supplyRequestList.add(new SupplyRequestContainer(changeStatus, doc.getString("itemId"), doc.getString("user"),
                                 doc.getDate("requestDate"), doc.getString("supplyReqDocId"),doc.getString("status"), doc.getId()));
 
                     }

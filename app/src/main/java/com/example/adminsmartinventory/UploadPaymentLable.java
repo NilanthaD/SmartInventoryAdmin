@@ -78,21 +78,21 @@ public class UploadPaymentLable extends AppCompatActivity {
                                 builder.setMessage("You have completed the paying the customer").setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-
+                                        Intent j = new Intent(UploadPaymentLable.this, PaymentRequestsRV.class);
+                                        j.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        startActivity(j);
+                                        UploadPaymentLable.this.finish();
                                     }
                                 });
-                                AlertDialog alert = builder.create();
-                                alert.show();
+                                builder.create();
+                                builder.show();
+
                             }
                         });
                     }
                 });
             }
         }
-        Intent j = new Intent(UploadPaymentLable.this, PaymentRequestsRV.class);
-        j.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-        startActivity(j);
-        UploadPaymentLable.this.finish();
     }
 }

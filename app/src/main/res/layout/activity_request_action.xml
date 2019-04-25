@@ -90,6 +90,25 @@
                 android:layout_marginTop="20dp"/>
 
             <LinearLayout
+                android:id="@+id/changeReqLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/newAmountTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="New Amount"/>
+                <TextView
+                    android:id="@+id/newMsgTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="New Message"/>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/statusChangeLL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
